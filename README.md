@@ -8,8 +8,7 @@ The portfolio is designed to present my work and achievements in a simple and pr
 
 🔗 Live Demo
 
-👉 Live Website: (Add your hosted link here, e.g. GitHub Pages / Netlify / Vercel)
-👉 GitHub Repository: (This repository)
+https://posakaveri28.github.io/Portfolio/
 
 📌 Features
 
@@ -48,27 +47,7 @@ Portfolio/
 
 (All CSS and JS are written inside the HTML file for simplicity.)
 
-🚀 How to Run Locally
-
-Download or clone this repository:
-
-git clone https://github.com/Posakaveri28/your-repo-name.git
-
-
-Open the folder:
-
-cd your-repo-name
-
-
-Open index.html in your browser.
-
-That’s it! No installations required.
-
-📸 Sections Included
-
-Home – Introduction and role
-
-About – Education and achievements
+s
 
 Projects – Portfolio & Library Management System
 
