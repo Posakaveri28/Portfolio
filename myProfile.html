@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Kaveri Posa | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    /* ====== Reset & Base ====== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f3f4f6;
+      color: #111827;
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ====== Layout ====== */
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    h1, h2, h3 {
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      color: #6b7280;
+      margin-bottom: 30px;
+      font-size: 0.95rem;
+    }
+
+    /* ====== Navbar ====== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(15, 23, 42, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #1f2937;
+      color: #e5e7eb;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      color: #e5e7eb;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #22c55e;
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .nav-toggle span {
+      width: 22px;
+      height: 2px;
+      background: #e5e7eb;
+    }
+
+    /* ====== Hero ====== */
+    #home {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, #e0f2fe 0%, #f9fafb 50%, #dcfce7 100%);
+    }
+
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .hero-text {
+      flex: 1 1 280px;
+    }
+
+    .hero-title {
+      font-size: 2.4rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-role {
+      color: #16a34a;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    .hero-desc {
+      color: #4b5563;
+      margin-bottom: 25px;
+      max-width: 480px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn-primary {
+      background: #22c55e;
+      color: #022c22;
+      font-weight: 600;
+    }
+
+    .btn-outline {
+      border-color: #22c55e;
+      color: #16a34a;
+      background: transparent;
+    }
+
+    .btn-primary:hover {
+      background: #16a34a;
+      color: #f9fafb;
+    }
+
+    .btn-outline:hover {
+      background: rgba(34, 197, 94, 0.08);
+    }
+
+    .hero-photo {
+      flex: 0 0 220px;
+      max-width: 260px;
+      border-radius: 999px;
+      border: 3px solid #22c55e;
+      aspect-ratio: 1/1;
+      background: radial-gradient(circle at top, #22c55e 0, #0f172a 60%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f9fafb;
+      font-size: 1.1rem;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.5);
+    }
+
+    /* ====== About ====== */
+    #about {
+      background: #ffffff;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+      gap: 32px;
+    }
+
+    .about-text {
+      color: #374151;
+      font-size: 0.95rem;
+    }
+
+    .about-text p + p {
+      margin-top: 12px;
+    }
+
+    .about-list {
+      list-style: none;
+      margin-top: 16px;
+    }
+
+    .about-list li {
+      margin-bottom: 6px;
+      color: #6b7280;
+      font-size: 0.9rem;
+    }
+
+    .about-highlight {
+      background: #ecfdf5;
+      border: 1px solid #16a34a;
+      padding: 16px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      color: #064e3b;
+      box-shadow: 0 12px 30px rgba(22, 163, 74, 0.08);
+    }
+
+    /* ====== Projects ====== */
+    #projects {
+      background: #f9fafb;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+      padding: 16px 18px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 25px rgba(15, 23, 42, 0.12);
+      border-color: #22c55e;
+    }
+
+    .project-name {
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+      color: #111827;
+    }
+
+    .project-desc {
+      font-size: 0.9rem;
+      color: #4b5563;
+      margin-bottom: 10px;
+    }
+
+    .project-links {
+      margin-bottom: 8px;
+      font-size: 0.85rem;
+    }
+
+    .project-links a {
+      color: #0ea5e9;
+    }
+
+    .project-links a:hover {
+      text-decoration: underline;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 0.75rem;
+    }
+
+    .tag {
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #eff6ff;
+      border: 1px solid #dbeafe;
+      color: #1d4ed8;
+    }
+
+    /* ====== Skills ====== */
+    #skills {
+      background: #ffffff;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+    }
+
+    .skill-category {
+      background: #f9fafb;
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+      padding: 14px 16px;
+    }
+
+    .skill-category h3 {
+      font-size: 0.98rem;
+      margin-bottom: 8px;
+      color: #0f172a;
+    }
+
+    .skill-category ul {
+      list-style: none;
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+
+    .skill-category li + li {
+      margin-top: 4px;
+    }
+
+    /* ====== Contact ====== */
+    #contact {
+      background: #f9fafb;
+    }
+
+    .contact-wrapper {
+      max-width: 520px;
+    }
+
+    .contact-info {
+      color: #374151;
+      font-size: 0.95rem;
+      margin-bottom: 18px;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+
+    .contact-row a {
+      color: #0ea5e9;
+    }
+
+    .contact-row a:hover {
+      text-decoration: underline;
+    }
+
+    /* ====== Footer ====== */
+    footer {
+      border-top: 1px solid #e5e7eb;
+      padding: 16px 0 28px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #6b7280;
+      background: #ffffff;
+    }
+
+    /* ====== Responsive ====== */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        right: 0;
+        top: 60px;
+        flex-direction: column;
+        background: #020617;
+        width: 100%;
+        padding: 12px 20px 16px;
+        border-bottom: 1px solid #1f2937;
+        display: none;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      #home {
+        padding-top: 70px;
+      }
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+  <!-- ====== Navbar ====== -->
+  <header>
+    <div class="container nav">
+      <div class="nav-logo">Welcome To My Portfolio</div>
+      <nav class="nav-links" id="nav-links">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ====== Hero ====== -->
+  <section id="home">
+    <div class="container hero">
+      <div class="hero-text">
+        <h1 class="hero-title">Kaveri Posa</h1>
+        <div class="hero-role">B.Tech CSE Student</div>
+        <p class="hero-desc">
+          I am a Computer Science student passionate about web development and problem solving.
+          I have built projects such as a personal portfolio website and a library management system,
+          and I have solved over 300+ problems on LeetCode while actively growing as a competitive programmer on CodeChef.
+        </p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">View Projects</a>
+          <a href="#contact" class="btn btn-outline">Contact Me</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        Kaveri<br />Posa
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== About ====== -->
+  <section id="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <p class="section-subtitle">Who I am and what I do</p>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            I am Kaveri Posa, a B.Tech Computer Science and Engineering student with a strong interest in web development and problem solving.
+            I like turning ideas into simple, user-friendly projects using HTML, CSS, and JavaScript.
+          </p>
+          <p>
+            Along with development, I actively practice data structures and algorithms.
+            I have solved over 300+ problems on LeetCode and I am a 2-star coder on CodeChef,
+            and I got many badges in Hacker Rank like C++, C, Problem Solving, Sql, Java,Python and sql Basic certificate
+            which helps me strengthen my logic and coding skills.
+          </p>
+
+          <ul class="about-list">
+            <li>📍 Location: Kadapa </li>
+            <li>🎓 Degree: B.Tech CSE</li>
+            <li>💡 Interests: Web development, DSA, competitive programming</li>
+          </ul>
+        </div>
+
+        <div class="about-highlight">
+          <strong>Quick Highlights</strong><br />
+          • Built a personal portfolio website using HTML, CSS, and JavaScript.<br />
+          • Developed a library management system as a mini project.<br />
+          • Solved 300+ problems on LeetCode and became a 2★ coder on CodeChef.<br />
+          • Open to internships, projects, and hackathons.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Projects ====== -->
+  <section id="projects">
+    <div class="container">
+      <h2>Projects</h2>
+      <p class="section-subtitle">Some things I’ve built</p>
+
+      <div class="projects-grid">
+        <!-- Portfolio Website -->
+        <div class="project-card">
+          <h3 class="project-name">Personal Portfolio Website</h3>
+          <p class="project-links">
+            Live: <a href="file:///C:/Users/ADMIN/OneDrive/Desktop/Portfolio.html#projects" target="_blank">View site</a> •
+            Code: <a href="PASTE_PORTFOLIO_CODE_LINK" target="_blank">View code</a>
+          </p>
+          <p class="project-desc">
+            A responsive personal portfolio website built using HTML, CSS, and a bit of JavaScript.
+            It showcases my projects, skills, and coding profiles in a clean one-page layout.
+          </p>
+          <div class="project-tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+          </div>
+        </div>
+
+        <!-- Library Management System -->
+        <div class="project-card">
+          <h3 class="project-name">Library Management System</h3>
+          <p class="project-links">
+            Live / Demo: <a href="https://github.com/Posakaveri28/Library-Management/blob/main/README.md" target="_blank">View demo</a> •
+            Code: <a href="https://github.com/Posakaveri28/Library-Management/blob/main/Main.cpp" target="_blank">View code</a>
+          </p>
+          <p class="project-desc">
+            A library management system that helps manage books, users, and issuing/returning operations.
+            It focuses on organizing records efficiently and simplifying basic library workflows.
+          </p>
+          <div class="project-tags">
+            <span class="tag">C++, DBMS</span>
+            <span class="tag">SQL Database</span>
+          </div>
+        </div>
+
+        <!-- Competitive Programming / Problem Solving -->
+        <div class="project-card">
+          <h3 class="project-name">Problem Solving & CP</h3>
+          <p class="project-links">
+            LeetCode: <a href="https://leetcode.com/u/POSA_KAVERI/" target="_blank">View profile</a> •
+            CodeChef: <a href="https://www.codechef.com/users/kindle_pool_56" target="_blank">View profile</a>
+          </p>
+          <p class="project-desc">
+            Solved 300+ problems on LeetCode and actively participate in CodeChef contests , 
+            where I am currently a 2★ coder in Codechef, ★ in Problem Solving , 3★ in C , 1★ in Python ,5★ in Sql ,4★ in java ,3★ in C++ and Ceritified in SQL(basic) on Hackerrank,
+            . This helps me practice DSA and competitive programming regularly.
+          </p>
+          <div class="project-tags">
+            <span class="tag">LeetCode</span>
+            <span class="tag">CodeChef</span>
+            <span class="tag">DSA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Skills ====== -->
+  <section id="skills">
+    <div class="container">
+      <h2>Skills</h2>
+      <p class="section-subtitle">Technologies and tools I’m familiar with</p>
+
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Programming</h3>
+          <ul>
+            <li>C / C++</li>
+            <li>Python</li>
+            <li>DBMS</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h3>Web</h3>
+          <ul>
+            <li>HTML, CSS</li>
+            <li>Basic JavaScript</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h3>Problem Solving</h3>
+          <ul>
+            <li>Data Structures & Algorithms</li>
+            <li>LeetCode (300+ problems)</li>
+            <li>CodeChef (2★)</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h3>Tools & Others</h3>
+          <ul>
+            <li>Git & GitHub</li>
+            <li>VS Code</li>
+            <li>Communication & teamwork</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Contact ====== -->
+  <section id="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <p class="section-subtitle">Feel free to reach out</p>
+
+      <div class="contact-wrapper">
+        <p class="contact-info">
+          If you’d like to collaborate, discuss opportunities, you can reach me through email or connect with me on my coding profiles.
+        </p>
+        <div class="contact-row">
+          <span>📧 Email: <a href="mailto:srinivasuluposa4@gmail.com">srinivasuluposa4@gmail.com</a></span>
+          <span>•</span>
+          <span>💻 LeetCode: <a href="https://leetcode.com/u/POSA_KAVERI/" target="_blank">LeetCode Profile</a></span>
+          <span>•</span>
+          <span>🏆 CodeChef: <a href="https://www.codechef.com/users/kindle_pool_56" target="_blank">CodeChef Profile</a></span>https:
+          <span>•</span>
+          <span>💼 LinkedIn: <a href="https://www.linkedin.com/in/kaveriposa/" target="_blank">LinkedIn</a></span>
+          <span>•</span>
+          <span>🧑‍💻 GitHub: <a href="https://github.com/Posakaveri28" target="_blank">GitHub</a></span>
+          <span>•</span>
+          <span>🟩 HackerRank: <a href="https://www.hackerrank.com/profile/24B11CS352" target="_blank">HackerRank Profile</a></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Footer ====== -->
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Kaveri Posa. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- ====== Small JS ====== -->
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+
+    // Active link highlight on click
+    const links = navLinks.querySelectorAll('a');
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        links.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+        navLinks.classList.remove('show');
+      });
+    });
+
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
